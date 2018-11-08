@@ -1,0 +1,37 @@
+cel = {}
+test = []
+rw = input()
+h = rw[0]
+w = rw[-1]
+count_c = 0
+count_r = 0
+for x in range(int(h)):
+    g = input()
+    g = g.split()
+    for i in g:
+        test.append({count_r: {count_c: i}})
+        count_c += 1
+    count_r += 1
+    count_c = 0
+result = None
+res = []
+print(test)
+for te in test:
+    print(te)
+    for row, value in te.items():
+        print(row, value)
+        for idd, val in value.items():
+            print(idd, val)
+            if result == None:
+                result = int(val)
+                res = [te]
+            elif int(val) > result:
+                print('add ', te)
+                res = [te]
+                result = int(val)
+            elif int(val) <= result:
+                pass
+dr = res[0].keys()
+a = list(dr)[0]
+b = res[0][a].keys()
+print(a, list(b)[0])

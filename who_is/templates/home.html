@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+</head>
+<body>
+<div class="col-xs-12 div1">
+    <div class="div_pad"><div id="div1div1" class="col-xs-6 col-xs-offset-2 box_hov">
+        <img src="{% static 'image/logo-lamoda.png' %}">
+    </div></div>
+    <div class="div_pad "><a class="col-xs-2 text-center box_hov" id="div1div2" href="/logout/">
+            <h1 id="logout"><span class="glyphicon glyphicon-log-out"></span></h1>
+    </a></div>
+</div>
+<div class="col-xs-12 div1">
+    <div class="col-xs-2 col-xs-offset-2 box_hov" id="div1div3">
+        <img style="margin-bottom: 30px;" class="img-thumbnail" src="{% static user_info.avatar %}"><br>
+        <b>Имя:</b> {{ request.user.first_name }}<br><b>Должность:</b> {{ user_info.position }}
+    </div>
+    <a class="col-xs-3 text-center" href="/game/{{ game_id }}" id="div1div4">
+        <img src="{% static 'image/Games2.png'%}">
+    </a>
+</div>
+<div class="col-xs-12 div1">
+    <div class="div_pad"><div id="div1div5" class="col-xs-4 col-xs-offset-2 box_hov">
+        <div class="col-xs-12" style="padding:5px 0 0 0;">
+
+            <div id="res_1" class="col-xs-10"><p style="margin-bottom:0;">Ты набрал(ла) &nbsp;&nbsp;&nbsp;<b>{{results.0.result}}</b></p><p style="margin-left:48%;margin-bottom:0; "> {{results.0.date}}</p></div>
+            <div id="res_2" class="col-xs-10"><p style="margin-bottom:0;">Ты набрал(ла) &nbsp;&nbsp;&nbsp;<b>{{results.1.result}}</b></p><p style="margin-left:48%;margin-bottom:0; "> {{results.1.date}}</p></div>
+            <div id="res_3" class="col-xs-10"><p style="margin-bottom:0;">Ты набрал(ла) &nbsp;&nbsp;&nbsp;<b>{{results.2.result}}</b></p><p style="margin-left:48%;margin-bottom:0; "> {{results.2.date}}</p></div>
+            <div id="res_4" class="col-xs-10"><p style="margin-bottom:0;">Ты набрал(ла) &nbsp;&nbsp;&nbsp;<b>{{results.3.result}}</b></p><p style="margin-left:48%;margin-bottom:0; "> {{results.3.date}}</p></div>
+        </div>
+    </div></div>
+    <div class="div_pad ">
+        <div class="col-xs-4 text-center box_hov" id="div1div6">
+            <table class="table" style="font-size: 12px;">
+                <thead>
+                    <tr>
+                       <th style="text-align:center;">Имя</th>
+                        <th>Должность</th>
+                        <th>Результат</th>
+                        <th style="text-align:center;">Когда</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for res in result_all%}
+                    <tr>
+                        <td>{{res.name}}</td>
+                        <td>{{res.position}}</td>
+                        <td>{{res.result}}</td>
+                        <td>{{res.time}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

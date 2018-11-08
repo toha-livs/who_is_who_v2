@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    {%load staticfiles%}
+    <link rel="stylesheet" href="{% static 'css/game_stat.css' %}"/>
+</head>
+<body style="background-color:#fbf9b4;">
+<div class="col-xs-5" style="margin-top:50px; padding: 0;">
+    <a href="/home/" style="border-radius:0 10px 10px 0; background-color:#5fabec;" class="btn btn-primary col-xs-5">Home</a>
+</div>
+<div class="text-center col-xs-4 col-xs-offset-4" style="margin-top:30px;">
+    <p style="font-size: 35px;">Ваш результат:</p><br>
+    <p style="font-size: 70px;" id="resultts">{{ result.result }}</p>
+    <img id="win" src="" style="height:300px;">
+</div>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-1.12.4.js"
+  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/game_stat.js' %}"></script>
+</body>
+</html>
