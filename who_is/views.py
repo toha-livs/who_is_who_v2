@@ -119,6 +119,7 @@ def test_ajax(request):
 
 def get_test(request):
     user = UserInfo.objects.filter(name__in=['Анна']).all()
+    print("привет лох")
     context = {'user': user}
     print(user)
     return render(request, 'testt.html', context)
